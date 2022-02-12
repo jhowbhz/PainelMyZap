@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS `sessoes` (
   `server` varchar(95) DEFAULT NULL,
   `apitoken` varchar(195) DEFAULT NULL,
   `session` varchar(95) DEFAULT NULL,
+  `status` varchar(95) DEFAULT NULL,
   `wh_status` varchar(195) DEFAULT NULL,
   `wh_message` varchar(195) DEFAULT NULL,
   `wh_qrcode` varchar(195) DEFAULT NULL,

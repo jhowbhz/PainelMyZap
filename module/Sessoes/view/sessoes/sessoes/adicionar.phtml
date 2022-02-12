@@ -1,38 +1,86 @@
+<?php $title = "Adicionar sessão"; $this->headTitle($title); ?>
+
 <div class="row">
 
     <div class="col-sm-12 mt-4">
-        <h4> Dados da sessão </h1>
+        <h4> <?=$this->escapeHtml($title)?> </h1>
         <hr />
     </div>
 
+    <?php
+
+        $form->setAttribute('action', $this->url('sessoes', ['action' => 'adicionar']));
+
+        $form->prepare();
+        echo $this->form()->openTag($form);
+        $id = $this->form->get('id');
+        $name = $this->form->get('name');
+        $description = $this->form->get('description');
+        $sessionkey = $this->form->get('sessionkey');
+        $server = $this->form->get('server');
+        $apitoken = $this->form->get('apitoken');
+        $session = $this->form->get('session');
+        $wh_status = $this->form->get('wh_status');
+        $wh_message = $this->form->get('wh_message');
+        $wh_qrcode = $this->form->get('wh_qrcode');
+        $wh_connect = $this->form->get('wh_connect');
+        $submit = $this->form->get('submit');
+
+        $name->setAttribute('class', 'form-control');
+        $description->setAttribute('class', 'form-control');
+        $sessionkey->setAttribute('class', 'form-control');
+
+        $server->setAttribute('class', 'form-control');
+        $server->setAttribute('placeholder', 'https://');
+
+        $apitoken->setAttribute('class', 'form-control');
+        $session->setAttribute('class', 'form-control');
+
+        $wh_status->setAttribute('class', 'form-control');
+        $wh_message->setAttribute('class', 'form-control');
+        $wh_qrcode->setAttribute('class', 'form-control');
+        $wh_connect->setAttribute('class', 'form-control');
+
+        $submit->setAttribute('class', 'btn btn-primary');
+    ?>
+</div>
+<div class="row">
+<?= $this->formElement($id) ?>
+
     <div class="col-sm-6">
-        <label for="host"> Servidor:porta </label>
-        <input type="text" name="host" id="host" class="form-control" />
+        <?=$this->formLabel($server) ?>
+        <?=$this->formElement($server) ?>
+        <?=$this->formElementErrors()->render($server, ['class' => 'help-block']) ?>
     </div>
     
     <div class="col-sm-3">
-        <label for="name"> Aparelho </label>
-        <input type="text" name="name" id="name" class="form-control" />
+        <?=$this->formLabel($name) ?>
+        <?=$this->formElement($name) ?>
+        <?=$this->formElementErrors()->render($name, ['class' => 'help-block']) ?>
     </div>
 
     <div class="col-sm-3">
-        <label for="session"> Nome da sessão (session)</label>
-        <input type="text" name="session" id="session" class="form-control" />
+        <?=$this->formLabel($session) ?>
+        <?=$this->formElement($session) ?>
+        <?=$this->formElementErrors()->render($session, ['class' => 'help-block']) ?>
     </div>
 
     <div class="col-sm-6">
-        <label for="sessionkey"> Chave da sessão (sessionkey) </label>
-        <input type="text" name="sessionkey" id="sessionkey" class="form-control" />
+        <?=$this->formLabel($sessionkey) ?>
+        <?=$this->formElement($sessionkey) ?>
+        <?=$this->formElementErrors()->render($sessionkey, ['class' => 'help-block']) ?>
     </div>
 
     <div class="col-sm-6">
-        <label for="apitoken"> API Token (apitoken) </label>
-        <input type="text" name="apitoken" id="apitoken" class="form-control" />
+        <?=$this->formLabel($apitoken) ?>
+        <?=$this->formElement($apitoken) ?>
+        <?=$this->formElementErrors()->render($apitoken, ['class' => 'help-block']) ?>
     </div>
 
     <div class="col-sm-12">
-        <label for="description"> Descrição </label>
-        <textarea name="description" id="description" class="form-control"> </textarea>
+        <?=$this->formLabel($description) ?>
+        <?=$this->formElement($description) ?>
+        <?=$this->formElementErrors()->render($description, ['class' => 'help-block']) ?>
     </div>
 
 </div>
@@ -45,25 +93,34 @@
     </div>
 
     <div class="col-sm-6">
-        <label for="wa_status"> Webhook status </label>
-        <input type="text" name="wa_status" id="wa_status" class="form-control" />
+        <?=$this->formLabel($wh_status) ?>
+        <?=$this->formElement($wh_status) ?>
+        <?=$this->formElementErrors()->render($wh_status, ['class' => 'help-block']) ?>
     </div>
 
     <div class="col-sm-6">
-        <label for="wa_status"> Webhook status </label>
-        <input type="text" name="wa_status" id="wa_status" class="form-control" />
+        <?=$this->formLabel($wh_message) ?>
+        <?=$this->formElement($wh_message) ?>
+        <?=$this->formElementErrors()->render($wh_message, ['class' => 'help-block']) ?>
     </div>
-
 
     <div class="col-sm-6">
-        <label for="wa_status"> Webhook status </label>
-        <input type="text" name="wa_status" id="wa_status" class="form-control" />
+        <?=$this->formLabel($wh_qrcode) ?>
+        <?=$this->formElement($wh_qrcode) ?>
+        <?=$this->formElementErrors()->render($wh_qrcode, ['class' => 'help-block']) ?>
     </div>
-
 
     <div class="col-sm-6">
-        <label for="wa_status"> Webhook status </label>
-        <input type="text" name="wa_status" id="wa_status" class="form-control" />
+        <?=$this->formLabel($wh_connect) ?>
+        <?=$this->formElement($wh_connect) ?>
+        <?=$this->formElementErrors()->render($wh_connect, ['class' => 'help-block']) ?>
     </div>
 
+</div>
+
+<div class="row">
+    <hr />
+    <div class="col-sm-12 mt-4"> 
+        <?= $this->formElement($submit) ?>
+    </div>
 </div>

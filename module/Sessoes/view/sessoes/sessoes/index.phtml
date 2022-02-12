@@ -16,18 +16,30 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="card-title text-center text-success"> <i class="fas fa-check-circle"></i> Online!</h2>
+                        <h2 class="card-title text-center">
+                            <?php 
+                            if($sessao->getStatus() == '1') {
+                                echo '<i class="fas fa-check-circle text-success"></i> Online!';
+                            } else {
+                                echo '<i class="fas fa-times-circle text-danger"></i> Offline!';
+                            }?>
+                        </h2>
                     </div>
 
                     <div class="card-body text-center">
-                        <img src="https://cdn-icons-png.flaticon.com/512/3699/3699516.png" class="w-50" alt="" />
+                        <?php 
+                            if($sessao->getStatus() == '1') {
+                                echo '<img src="https://uxwing.com/wp-content/themes/uxwing/download/34-crime-security-military-law/security.svg" style="width:100px" alt="" />';
+                            } else {
+                                echo '<img src="https://uxwing.com/wp-content/themes/uxwing/download/13-time-date/no-time.svg" style="width:120px" alt="" />';
+                        }?>
                         <hr />
-                        <strong> Nome: </strong> Samsung S9 <br />
-                        <strong> Key:</strong> xAUaSAS@azz <br />
+                        <strong> Nome: </strong> <?=$sessao->getSession()?> <br />
+                        <strong> Key:</strong> </strong> <?=$sessao->getSessionkey()?> <br />
                         <hr />
                         <a class="btn btn-danger pull-right" href="#" target="_blank">Desconectar &raquo;</a>
                         <br />
-                        <a href="sessoes/editar/<?=$sessao->getId()?>"> Editar </a>
+                        <a href="<?=$this->url('sessoes', ['action' => 'editar', 'id' => $sessao->getId()]) ?>"> Editar </a>
                     </div>
 
                 </div>

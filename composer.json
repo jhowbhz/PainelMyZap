@@ -14,7 +14,9 @@
         "zendframework/zend-component-installer": "^1.0 || ^2.1",
         "zendframework/zend-mvc": "^3.1.1",
         "zfcampus/zf-development-mode": "^3.2",
-        "zendframework/zend-db": "^2.11"
+        "zendframework/zend-db": "^2.11",
+        "zendframework/zend-form": "^2.14",
+        "zendframework/zend-i18n": "^2.10"
     },
     "autoload": {
         "psr-4": {
