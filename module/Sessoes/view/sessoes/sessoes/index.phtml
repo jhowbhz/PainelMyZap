@@ -1,0 +1,40 @@
+<?php
+    $var = "teste";
+
+    //var_dump($sessoes);exit();
+?>
+
+<div class="row mt-4">
+    <div class="col-md-12"> <a href="<?= $this->url('sessoes') ?>/adicionar" class="btn btn-info float-end"> Adicionar sessão </a> </div>
+</div>
+
+<div class="row mt-4">
+
+    <?php if(isset($sessoes) and count($sessoes) > 0)
+    { ?>
+        <?php foreach ($sessoes as $sessao) : ?>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title text-center text-success"> <i class="fas fa-check-circle"></i> Online!</h2>
+                    </div>
+
+                    <div class="card-body text-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3699/3699516.png" class="w-50" alt="" />
+                        <hr />
+                        <strong> Nome: </strong> Samsung S9 <br />
+                        <strong> Key:</strong> xAUaSAS@azz <br />
+                        <hr />
+                        <a class="btn btn-danger pull-right" href="#" target="_blank">Desconectar &raquo;</a>
+                        <br />
+                        <a href="sessoes/editar/<?=$sessao->getId()?>"> Editar </a>
+                    </div>
+
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php } else { ?>
+        <div class="col-sm-12"> <h3> Nenhuma sessão encontrada </h3> </div>
+    <?php } ?>
+
+</div>
