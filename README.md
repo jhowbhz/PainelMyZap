@@ -36,26 +36,7 @@ $ php -S 0.0.0.0:8080 -t public
 # ou use o composer
 $ composer run --timeout 0 serve
 ```
-## 📌 Utilizando com Nginx
-```nginx
-server {
-    listen       80;
-    server_name  zfapp.localhost;
-    root         /path/to/zfapp/public;
 
-    location / {
-        index index.php;
-        try_files $uri $uri/ @php;
-    }
-
-    location @php {
-        # Pass the PHP requests to FastCGI server (php-fpm) on 127.0.0.1:9000
-        fastcgi_pass   127.0.0.1:9000;
-        fastcgi_param  SCRIPT_FILENAME /path/to/zfapp/public/index.php;
-        include fastcgi_params;
-    }
-}
-```
 ## 🏃Pronto, agora é so iniciar o painel
 
 ```bash
@@ -64,3 +45,11 @@ $ php -S 0.0.0.0:8080 -t public
 # OR use the composer alias:
 $ composer run --timeout 0 serve
 ```
+
+# Screenshot
+[<img src="https://i.imgur.com/TUNjHR3.png" width="250"/>]('https://i.imgur.com/TUNjHR3.png')
+[<img src="https://i.imgur.com/PRsseeQ.png" width="250"/>]('https://i.imgur.com/PRsseeQ.png')
+[<img src="https://i.imgur.com/A2y4Yge.png" width="250"/>]('https://i.imgur.com/A2y4Yge.png')
+[<img src="https://i.imgur.com/UVck0Ha.png" width="250"/>]('https://i.imgur.com/UVck0Ha.png')
+[<img src="https://i.imgur.com/I1CONQ3.png" width="250"/>]('https://i.imgur.com/I1CONQ3.png')
+[<img src="https://i.imgur.com/yT388os.png" width="250"/>]('https://i.imgur.com/yT388os.png')
