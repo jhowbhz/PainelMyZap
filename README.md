@@ -5,13 +5,20 @@
 Esse é um painel criado como estudo pessoal do framework (Zend Framework MVC) 
 não foi criado para fins comerciais, mas você está livre para utilizar, e melhorar
 da forma que quiser.
-## 📖 Instalação
+
+## 📦Requerimentos
+* Ubuntu 18.04+
+* Git
+* PHP 7.4+
+* MySql
+
+## 📖 Download do painel 
 Clone o repositorio oficial
 
 ```bash
 $ git clone https://github.com/jhowbhz/PainelMyZap.git /opt/PainelMyZap
 ```
-## 🕒 Crontab checagem sessões
+## 🕒 Crontab de checagem das sessões
 ```bash
 # adicionar permissao
 $ chmod -R 0777 /opt/PainelMyZap/cron/cron.sh
@@ -22,7 +29,11 @@ $ crontab -e
 # Adicione a linha
 $ 0 5 * * * /opt/PainelMyZap/cron/cron.sh --quiet
 ```
-## ⚙️ Configurando 
+## ⚙️ Instalando e configurando 
+
+```bash
+$ cd /opt/PainelMyZap && composer install
+```
 
 ```bash
 # Altere a linha CHAVE_WEBOOK=1234
