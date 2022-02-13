@@ -5,6 +5,8 @@ namespace Sessoes\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Sessoes\Form\SessoesForm;
+use ApiGratis\ApiBrasil;
+use Zend\Db\Sql\Sql;
 
 class SessoesController extends AbstractActionController
 {
@@ -30,6 +32,45 @@ class SessoesController extends AbstractActionController
             return $th;
         }
     }
+
+    public function checarAction()
+    {
+        $sessoes = $this->table->getAll();
+
+        foreach($sessoes as $sessao){
+
+            $checado['sessao'][] = $sessao->getSession();
+            $chave = (string) $this->params()->fromPost('chave');
+            header('Content-Type: application/json');
+    
+            if($chave != CHAVE_WEBHOOK) {
+                echo json_encode(['error' => "Chave: A chave ".$chave." esta incorreta."]);die;
+            }
+    
+            $sessao = $this->table->getSessao($sessao->getId());
+    
+            if(isset($sessao)) {
+                
+                $check = ApiBrasil::WhatsAppService("getHostDevice", [
+                    "serverhost" => $sessao->getServer(), //required
+                    "session" => $sessao->getSession() ?? '', //required
+                    "sessionkey" => $sessao->getSessionkey() ?? '', //required
+                ]);
+    
+                $check = json_decode($check, true);
+                $checado['status'][] = isset($check['status']) ? $check['status'] : 0;
+
+                if($check['result'] == 200 and isset($check['connected'])){
+                    $sessao->setStatus( $check['connected'] );
+                }else{
+                    $sessao->setStatus(0);
+                }
+                $this->table->salvarSessao($sessao);
+            }
+    
+        }
+
+    }
     
     public function adicionarAction()
     {
@@ -39,7 +80,6 @@ class SessoesController extends AbstractActionController
             $form->get('submit')->setValue('Salvar sessão');
             $request = $this->getRequest();
 
-            //var_dump($request->getPost());
             // se nao for uma requisicao post retorna para a view
             if(!$request->isPost()) {
                 return new ViewModel(['form' => $form]);
@@ -62,6 +102,7 @@ class SessoesController extends AbstractActionController
             return $th;
         }
     }
+
     public function editarAction()
     {
         $id = (int) $this->params()->fromRoute('id', 0);
@@ -98,6 +139,42 @@ class SessoesController extends AbstractActionController
         }
 
         return new ViewModel();
+    }
+
+    public function iniciarAction()
+    {
+        $request = $this->getRequest();
+        $body = json_decode(file_get_contents('php://input'), true);
+
+        if(!$request->isPost()) {
+            echo json_encode(['status' => 'error', 'message' => 'Requisição inválida']);die;
+        }
+
+        if(!$body['id']) {
+            echo json_encode(['status' => 'error', 'message' => 'ID não informado']);die;
+        }
+
+        $sessao = $this->table->getSessao($body['id']);
+
+        $start = ApiBrasil::WhatsAppService("start", [
+            "serverhost" => $sessao->getServer(), //required
+            "method" => "POST", //optional
+            "apitoken" => $sessao->getApiToken() ?? '', //required
+            "session" => $sessao->getSession() ?? '', //required
+            "sessionkey" => $sessao->getSessionkey() ?? '', //required
+            "wh_status" => $sessao->getWh_status() ?? '', //optional
+            "wh_message" => $sessao->getWh_message() ?? '', //optional
+            "wh_connect" => $sessao->getWh_connect() ?? '', //optional
+            "wh_qrcode" => $sessao->getWh_qrcode() ?? '', //optional
+        ]);
+
+        $result = json_decode($start);
+
+        if($result->result === 'success'){
+            echo $start;die;
+        };
+
+        echo json_encode(['status' => 'error', 'message' => $result]);die;
     }
 
     public function removerAction()

@@ -5,6 +5,9 @@
  * @see https://docs.zendframework.com/tutorials/advanced-config/#environment-specific-system-configuration
  * @see https://docs.zendframework.com/tutorials/advanced-config/#environment-specific-application-configuration
  */
+
+const CHAVE_WEBHOOK = '1234';
+
 return [
     // Retrieve list of modules used in this application.
     'modules' => require __DIR__ . '/modules.config.php',
@@ -40,7 +43,7 @@ return [
 
         // The path in which to cache merged configuration.
         'cache_dir' => 'data/cache/',
-
+        
         // Whether or not to enable modules dependency checking.
         // Enabled by default, prevents usage of modules that depend on other modules
         // that weren't loaded.

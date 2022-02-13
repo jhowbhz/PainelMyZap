@@ -5,59 +5,38 @@
 Esse é um painel criado como estudo pessoal do framework (Zend Framework MVC) 
 não foi criado para fins comerciais, mas você está livre para utilizar, e melhorar
 da forma que quiser.
-
 ## 📖 Instalação
-
-```bash
-$ crontab -e
-```
-
-Adicione essa linha 
-
-```bash
-$ Adicione essa linha 
-```
-
 Clone o repositorio oficial
 
 ```bash
-$ git clone xxxxxxxxxxxxxx /opt/
+$ git clone https://github.com/jhowbhz/PainelMyZap.git /opt/PainelMyZap
 ```
+## 🕒 Crontab checagem sessões
+```bash
+# adicionar permissao
+$ chmod -R 0777 /opt/PainelMyZap/cron/cron.sh
 
-## 🐋 Utilizando docker
+# abrir o crontab
+$ crontab -e
+
+# Adicione a linha
+$ 0 5 * * * /opt/PainelMyZap/cron/cron.sh --quiet
+```
+## ⚙️ Configurando 
 
 ```bash
-$ cd path/to/install
-$ php -S 0.0.0.0:8080 -t public
-# OR use the composer alias:
-$ composer run --timeout 0 serve
+# Altere a linha ```CHAVE_WEBOOK=1234```
+$ nano /opt/PainelMyZap/config/application.config.php
 ```
-
-## 🏃Pronto, agora é so iniciar o painel
+## 🌎 Iniciando servidor web
 
 ```bash
-$ cd path/to/install
+$ cd /opt/PainelMyZap
 $ php -S 0.0.0.0:8080 -t public
-# OR use the composer alias:
+# ou use o composer
 $ composer run --timeout 0 serve
 ```
-
 ## 📌 Utilizando com Nginx
-
-To setup nginx, open your `/path/to/nginx/nginx.conf` and add an
-[include directive](http://nginx.org/en/docs/ngx_core_module.html#include) below
-into `http` block if it does not already exist:
-
-```nginx
-http {
-    # ...
-    include sites-enabled/*.conf;
-}
-```
-
-Create a virtual host configuration file for your project under `/path/to/nginx/sites-enabled/zfapp.localhost.conf`
-it should look something like below:
-
 ```nginx
 server {
     listen       80;
@@ -77,23 +56,11 @@ server {
     }
 }
 ```
-## 📌 Utilizando com Apache
+## 🏃Pronto, agora é so iniciar o painel
 
-To setup apache, setup a virtual host to point to the public/ directory of the
-project and you should be ready to go! It should look something like below:
-
-```apache
-<VirtualHost *:80>
-    ServerName zfapp.localhost
-    DocumentRoot /path/to/zfapp/public
-    <Directory /path/to/zfapp/public>
-        DirectoryIndex index.php
-        AllowOverride All
-        Order allow,deny
-        Allow from all
-        <IfModule mod_authz_core.c>
-        Require all granted
-        </IfModule>
-    </Directory>
-</VirtualHost>
+```bash
+$ cd path/to/install
+$ php -S 0.0.0.0:8080 -t public
+# OR use the composer alias:
+$ composer run --timeout 0 serve
 ```
