@@ -13,65 +13,65 @@ da forma que quiser.
 * MySql
 
 ```bash
-$ sudo apt install software-properties-common
+sudo apt install software-properties-common
 ```
 
 ```
-$ sudo add-apt-repository ppa:ondrej/php
+sudo add-apt-repository ppa:ondrej/php
 ```
 
 ```bash
-$ sudo apt update && apt install php7.4 && apt install php7.4-intl && apt install php7.4-curl && apt install php7.4-mysqli && composer 
+sudo apt update && apt install php7.4 && apt install php7.4-intl && apt install php7.4-curl && apt install php7.4-mysqli && composer 
 ```
 
 ## 📖 Download do painel 
 Clone o repositorio oficial
 
 ```bash
-$ git clone https://github.com/jhowbhz/PainelMyZap.git /opt/PainelMyZap
+git clone https://github.com/jhowbhz/PainelMyZap.git /opt/PainelMyZap
 ```
 ## 🕒 Crontab de checagem das sessões
 ```bash
 # adicionar permissao
-$ chmod -R 0777 /opt/PainelMyZap/cron/cron.sh
+chmod -R 0777 /opt/PainelMyZap/cron/cron.sh
 
 # abrir o crontab
-$ crontab -e
+crontab -e
 
 # Adicione a linha
-$ 0 5 * * * /opt/PainelMyZap/cron/cron.sh --quiet
+0 5 * * * /opt/PainelMyZap/cron/cron.sh --quiet
 ```
 ## ⚙️ Instalando e configurando 
 
 ```bash
-$ cd /opt/PainelMyZap && composer install
+cd /opt/PainelMyZap && composer install
 ```
 
 ```bash
 # Altere a linha CHAVE_WEBOOK=1234
-$ nano /opt/PainelMyZap/config/application.config.php
+nano /opt/PainelMyZap/config/application.config.php
 ```
 
 ```bash
 # Configurando banco de dados
-$ nano /opt/PainelMyZap/module/Sessoes/config/module.config.php
+nano /opt/PainelMyZap/module/Sessoes/config/module.config.php
 ```
 ## 🌎 Iniciando servidor web
 
 ```bash
-$ cd /opt/PainelMyZap
-$ php -S 0.0.0.0:8080 -t public
+cd /opt/PainelMyZap
+php -S 0.0.0.0:8080 -t public
 # ou use o composer
-$ composer run --timeout 0 serve
+composer run --timeout 0 serve
 ```
 
 ## 🏃Pronto, agora é so iniciar o painel
 
 ```bash
-$ cd path/to/install
-$ php -S 0.0.0.0:8080 -t public
+cd path/to/install
+php -S 0.0.0.0:8080 -t public
 # OR use the composer alias:
-$ composer run --timeout 0 serve
+composer run --timeout 0 serve
 ```
 
 # Screenshot
