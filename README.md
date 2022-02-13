@@ -21,10 +21,6 @@ $ sudo add-apt-repository ppa:ondrej/php
 ```
 
 ```bash
-$ sudo apt update
-```
-
-```bash
 $ sudo apt update && apt install php7.4 && apt install php7.4-intl && composer
 ```
 
