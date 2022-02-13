@@ -9,7 +9,8 @@ class SessoesForm extends \Zend\Form\Form
 
         $this->add(new \Zend\Form\Element\Hidden('id'));
         $this->add(new \Zend\Form\Element\Text('name', ['label' => 'Nome da sessão',]));
-        $this->add(new \Zend\Form\Element\TextArea('description', ['label' => 'Descrição / Observações']));
+        $this->add(new \Zend\Form\Element\Text('description', ['label' => 'Descrição / Observações']));
+
 
         $this->add(new \Zend\Form\Element\Text('server', ['label' => 'Servidor:porta']));
         $this->add(new \Zend\Form\Element\Text('sessionkey', ['label' => 'Chave da sessão (sessionkey)']));
