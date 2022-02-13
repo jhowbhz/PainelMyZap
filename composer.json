@@ -17,7 +17,7 @@
         "zendframework/zend-db": "^2.11",
         "zendframework/zend-form": "^2.14",
         "zendframework/zend-i18n": "^2.10",
-        "jhowbhz/package-apigratis": "^0.2.6",
+        "jhowbhz/package-apigratis": "^0.2.6"
     },
     "autoload": {
         "psr-4": {
