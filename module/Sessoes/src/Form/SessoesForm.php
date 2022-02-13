@@ -1,7 +1,7 @@
 <?php
 
 namespace Sessoes\Form;
-use \Zend\Form\Element;
+use Zend\Form\Element;
 class SessoesForm extends \Zend\Form\Form
 {
     public function __construct()
