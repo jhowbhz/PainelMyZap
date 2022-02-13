@@ -25,7 +25,7 @@ $ 0 5 * * * /opt/PainelMyZap/cron/cron.sh --quiet
 ## ⚙️ Configurando 
 
 ```bash
-# Altere a linha ```CHAVE_WEBOOK=1234```
+# Altere a linha CHAVE_WEBOOK=1234
 $ nano /opt/PainelMyZap/config/application.config.php
 ```
 ## 🌎 Iniciando servidor web
