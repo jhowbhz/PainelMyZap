@@ -39,7 +39,6 @@ class SessoesController extends AbstractActionController
 
         foreach($sessoes as $sessao){
 
-            $checado['sessao'][] = $sessao->getSession();
             $chave = (string) $this->params()->fromPost('chave');
             header('Content-Type: application/json');
     
@@ -50,7 +49,7 @@ class SessoesController extends AbstractActionController
             $sessao = $this->table->getSessao($sessao->getId());
     
             if(isset($sessao)) {
-                
+
                 $check = ApiBrasil::WhatsAppService("getHostDevice", [
                     "serverhost" => $sessao->getServer(), //required
                     "session" => $sessao->getSession() ?? '', //required
@@ -58,7 +57,6 @@ class SessoesController extends AbstractActionController
                 ]);
     
                 $check = json_decode($check, true);
-                $checado['status'][] = isset($check['status']) ? $check['status'] : 0;
 
                 if($check['result'] == 200 and isset($check['connected'])){
                     $sessao->setStatus( $check['connected'] );

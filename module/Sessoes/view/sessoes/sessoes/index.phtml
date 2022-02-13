@@ -54,9 +54,9 @@
                         
                         <?php 
                             if($sessao->getStatus() == '1') {
-                                echo '<button class="btn btn-danger btn-close_'.preg_replace('/\s+/', '', $sessao->getSession()).'" onclick="close()" target="_blank">Desconectar &raquo;</button>';
+                                echo "<button class='btn btn-danger btn-close_".preg_replace('/\s+/', "", $sessao->getSession())."' onclick=closeSession('".$sessao->getId()."','".preg_replace('/\s+/', "", $sessao->getSession())."', '".$sessao->getSessionKey()."') target='_blank'>Desconectar &raquo;</button>";
                             } else {
-                                echo '<button class="btn btn-success btn-start_'.preg_replace('/\s+/', '', $sessao->getSession()).'" onclick="start('.$sessao->getId().')" target="_blank">Conectar &raquo;</button>';
+                                echo "<button class='btn btn-success btn-start_".preg_replace('/\s+/', "", $sessao->getSession())."' onclick=start('".$sessao->getId()."','".preg_replace('/\s+/', "", $sessao->getSession())."','".$sessao->getSessionKey()."') target='_blank'>Conectar &raquo;</button>";
                         }?>
                         
 
