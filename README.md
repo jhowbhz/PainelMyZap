@@ -39,6 +39,11 @@ $ cd /opt/PainelMyZap && composer install
 # Altere a linha CHAVE_WEBOOK=1234
 $ nano /opt/PainelMyZap/config/application.config.php
 ```
+
+```bash
+# Configurando banco de dados
+$ nano /opt/PainelMyZap/module/Sessoes/config/module.config.php
+```
 ## 🌎 Iniciando servidor web
 
 ```bash

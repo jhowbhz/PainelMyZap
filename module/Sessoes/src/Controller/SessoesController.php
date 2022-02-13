@@ -6,7 +6,6 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Sessoes\Form\SessoesForm;
 use ApiGratis\ApiBrasil;
-use Zend\Db\Sql\Sql;
 
 class SessoesController extends AbstractActionController
 {
