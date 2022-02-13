@@ -21,8 +21,9 @@ sudo add-apt-repository ppa:ondrej/php
 ```
 
 ```bash
-sudo apt update && apt install git && apt install php7.4 && apt install php7.4-intl \
-&& apt install zip apt install php7.4-curl apt install php7.4-mysqli && apt install composer
+sudo apt update \
+&& apt install -y git php7.4 php7.4-intl \
+&& zip apt php7.4-curl php7.4-mysqli composer
 ```
 
 ## 📖 Download do painel 
