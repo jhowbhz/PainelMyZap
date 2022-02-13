@@ -25,7 +25,7 @@ $ sudo apt update
 ```
 
 ```bash
-$ apt install php7.4 && apt install && php7.4-intl && composer
+$ sudo apt update && apt install php7.4 && apt install php7.4-intl && composer
 ```
 
 ## 📖 Download do painel 
