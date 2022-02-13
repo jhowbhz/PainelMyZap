@@ -12,6 +12,18 @@ da forma que quiser.
 * PHP 7.4+
 * MySql
 
+```bash
+$ sudo apt install software-properties-common
+```
+
+```
+$ sudo add-apt-repository ppa:ondrej/php
+```
+
+```bash
+$ sudo apt update && apt install php7.4 && apt install php7.4-intl && composer
+```
+
 ## 📖 Download do painel 
 Clone o repositorio oficial
 
