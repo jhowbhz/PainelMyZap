@@ -6,6 +6,9 @@ Esse é um painel criado como estudo pessoal do framework (Zend Framework MVC)
 não foi criado para fins comerciais, mas você está livre para utilizar, e melhorar
 da forma que quiser.
 
+## ▶️ Video ensiando instalar
+```` https://www.youtube.com/watch?v=3XQvrG5Yupw````
+
 ## 📦Requerimentos
 * Ubuntu 18.04+
 * Git
@@ -25,9 +28,9 @@ sudo apt update && apt install -y git && apt install php7.4 && apt install php7.
 ```
 
 ## 📖 Download do painel 
-Clone o repositorio oficial
 
 ```bash
+# clone o repositorio oficial
 git clone https://github.com/jhowbhz/PainelMyZap.git /opt/PainelMyZap
 ```
 ## 🕒 Crontab de checagem das sessões
@@ -38,7 +41,7 @@ chmod -R 0777 /opt/PainelMyZap/cron/cron.sh
 # abrir o crontab
 crontab -e
 
-# Adicione a linha
+# adicione a linha
 0 5 * * * /opt/PainelMyZap/cron/cron.sh --quiet
 ```
 ## 🖥️ Banco de dados
@@ -58,7 +61,7 @@ nano /opt/PainelMyZap/config/application.config.php
 ```
 
 ```bash
-# Configurando banco de dados
+# configurando banco de dados
 nano /opt/PainelMyZap/module/Sessoes/config/module.config.php
 ```
 ## 🌎 Iniciando servidor web
