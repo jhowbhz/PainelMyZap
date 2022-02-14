@@ -66,6 +66,8 @@ class SessoesController extends AbstractActionController
             }
     
         }
+        
+        echo json_encode(['success' => "Checagem realizada com sucesso."]);die;
 
     }
     
