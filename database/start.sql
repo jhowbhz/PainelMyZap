@@ -1,5 +1,5 @@
 -- --------------------------------------------------------
--- Servidor:                     127.0.0.1
+-- Servidor:                     192.168.100.91
 -- Versão do servidor:           10.6.5-MariaDB-1:10.6.5+maria~focal - mariadb.org binary distribution
 -- OS do Servidor:               debian-linux-gnu
 -- HeidiSQL Versão:              11.3.0.6295
@@ -23,15 +23,15 @@ CREATE TABLE IF NOT EXISTS `sessoes` (
   `description` varchar(195) DEFAULT NULL,
   `sessionkey` varchar(195) DEFAULT NULL,
   `server` varchar(95) DEFAULT NULL,
+  `status` varchar(50) DEFAULT NULL,
   `apitoken` varchar(195) DEFAULT NULL,
   `session` varchar(95) DEFAULT NULL,
-  `status` varchar(95) DEFAULT NULL,
   `wh_status` varchar(195) DEFAULT NULL,
   `wh_message` varchar(195) DEFAULT NULL,
   `wh_qrcode` varchar(195) DEFAULT NULL,
   `wh_connect` varchar(195) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4;
 
 -- Exportação de dados foi desmarcado.
 
