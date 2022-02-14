@@ -27,7 +27,7 @@ class SessoesController extends AbstractActionController
             // retorna para a view
             return new ViewModel(['sessoes' => $sessoes]);
             
-        } catch (\RuntimeException $th) {
+        } catch (RuntimeException $th) {
             return $th;
         }
     }
@@ -97,7 +97,7 @@ class SessoesController extends AbstractActionController
             
             return $this->redirect()->toRoute('sessoes');
 
-        } catch (\RuntimeException $th) {
+        } catch (RuntimeException $th) {
             return $th;
         }
     }
@@ -133,7 +133,7 @@ class SessoesController extends AbstractActionController
             $this->table->salvarSessao($form->getData());
             return $this->redirect()->toRoute('sessoes', ['action' => 'index']);
 
-        } catch (\RuntimeException $th) {
+        } catch (RuntimeException $th) {
             return $th;
         }
 
