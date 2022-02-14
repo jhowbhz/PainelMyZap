@@ -41,11 +41,9 @@ crontab -e
 # Adicione a linha
 0 5 * * * /opt/PainelMyZap/cron/cron.sh --quiet
 ```
-## Banco de dados
+## 🖥️ Banco de dados
 ```bash
-sudo apt update
-sudo apt install mariadb-server
-sudo mysql_secure_installation
+sudo apt update && sudo apt install mariadb-server && sudo mysql_secure_installation
 ```
 
 ## ⚙️ Instalando e configurando 
