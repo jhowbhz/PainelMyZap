@@ -46,7 +46,7 @@ crontab -e
 ```
 ## 🖥️ Banco de dados
 ```bash
-sudo apt update && sudo apt install mariadb-server && sudo mysql_secure_installation
+sudo apt update && sudo apt install mariadb-server && service mysql start && sudo mysql_secure_installation
 ```
 
 ## ⚙️ Instalando e configurando 
